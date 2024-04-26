@@ -109,19 +109,43 @@
         </div>
     </div>
     <div class="love-section">
-        <div class="love-content">
-            <h1>Лавина сердец!</h1>
-            <p>Вы можете оставлять безграничное количество сердец! Мне будет очень приятно!</p>
-            <div class="love-btn">
-                <div class="btn-love">
-                    <h2>лайкнуть</h2>
-                </div>
-                <div class="cnt-love">
-                    <h3 id="heart-count">0 сердец</h3>
-                </div>
+    <div class="love-content">
+        <h1>Лавина сердец!</h1>
+        <p>Вы можете оставлять безграничное количество сердец! Мне будет очень приятно!</p>
+        <div class="love-btn">
+            <div class="btn-love">
+                <h2>лайкнуть</h2>
+            </div>
+            <div class="cnt-love">
+                <h3 id="heart-count"><?php echo getHeartCount(); ?> сердец</h3>
             </div>
         </div>
     </div>
+</div>
+
+<?php
+// Функция для получения количества сердец из файла
+function getHeartCount() {
+    $filePath = "heart_count.txt"; // Путь к файлу с количеством сердец
+
+    // Проверяем, существует ли файл
+    if (file_exists($filePath)) {
+        // Читаем количество сердец из файла
+        $heartCount = file_get_contents($filePath);
+        return $heartCount !== false ? intval($heartCount) : 0; // Возвращаем количество сердец, преобразованное в целое число
+    } else {
+        return 0; // Если файл не существует, возвращаем 0
+    }
+}
+
+// Функция для обновления количества сердец в файле
+function updateHeartCount($newCount) {
+    $filePath = "heart_count.txt"; // Путь к файлу с количеством сердец
+
+    // Записываем новое количество сердец в файл
+    file_put_contents($filePath, $newCount);
+}
+?>
 
 
 <script src="script.js"></script>
@@ -130,29 +154,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
-<script>
-    // Получаем текущее значение счетчика из локального хранилища или устанавливаем его в 0, если не существует
-    let heartsCount = localStorage.getItem('heartsCount');
-    if (!heartsCount) {
-        heartsCount = 0;
-        localStorage.setItem('heartsCount', heartsCount);
-    } else {
-        // Обновляем отображение счетчика при загрузке страницы
-        document.getElementById('heart-count').textContent = heartsCount + ' сердец';
-    }
 
-    // Функция для увеличения счетчика и сохранения его значения в локальном хранилище
-    function incrementCounter() {
-        heartsCount++;
-        localStorage.setItem('heartsCount', heartsCount);
-        document.getElementById('heart-count').textContent = heartsCount + ' сердец';
-    }
-
-    // Добавляем обработчик события на кнопку "лайкнуть"
-    document.querySelector('.btn-love').addEventListener('click', function() {
-        incrementCounter();
-    });
-</script>
 
 </body>
 </html>
