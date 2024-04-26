@@ -108,12 +108,12 @@
             
         </div>
     </div>
-    <div class="love-section">
+    <!--<div class="love-section">
         <div class="love-content">
             <h1>Лавина сердец!</h1>
             <p>Вы можете оставлять безграничное количество сердец! Мне будет очень приятно!</p>
             <div class="love-btn">
-                <div class="btn-love">
+                <div class="btn-love" id="like-btn">
                     <h2>лайкнуть</h2>
                 </div>
                 <div class="cnt-love">
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 
 <script src="script.js"></script>
@@ -131,37 +131,7 @@
     }
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var likeBtn = document.getElementById("like-btn");
-        var heartCountElem = document.getElementById("heart-count");
-        var heartCount = 0; // Начальное значение количества сердец
 
-        // Загрузка количества сердец из файла при загрузке страницы
-        loadHeartCount();
-
-        // Обработчик нажатия кнопки "Лайкнуть"
-        likeBtn.addEventListener("click", function() {
-            // Увеличиваем счетчик сердец на 1
-            heartCount++;
-            // Обновляем количество сердец на странице
-            heartCountElem.textContent = heartCount + " сердец";
-            // Сохраняем значение в файл
-            saveHeartCount(heartCount);
-        });
-
-        // Функция загрузки количества сердец из файла
-        function loadHeartCount() {
-            // Пока просто устанавливаем 0
-            heartCountElem.textContent = "0 сердец";
-        }
-
-        // Функция сохранения количества сердец в файл
-        function saveHeartCount(count) {
-            // Пока оставляем пустую реализацию
-        }
-    });
-</script>
 
 
 </body>
