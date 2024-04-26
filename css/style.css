@@ -1,0 +1,313 @@
+:root {
+    --color: #3D4C8D;
+    --card-color: #ECEEF3;
+}
+
+@font-face {
+    font-family: 'Outline Pixel7 Solid';
+    src: local('Outline Pixel7 Solid'),
+        url('../fonts/outline_pixel-7_solid/outline_pixel-7_solid.woff') format('woff'),
+        url('../fonts/outline_pixel-7_solid/outline_pixel-7_solid.ttf') format('ttf'),
+        url('../fonts/outline_pixel-7_solid/outline_pixel-7_solid.eot') format('eot');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter Bold'),
+        url('../fonts/inter/bold/Inter-Bold.woff') format('woff'),
+        url('../fonts/inter/bold/Inter-Bold.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter Medium'),
+        url('../fonts/inter/medium/Inter-Medium.woff') format('woff'),
+        url('../fonts/inter/medium/Inter-Medium.woff2') format('woff2'),
+}
+
+html, body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    user-select: none; /* Стандартное свойство CSS */
+    -webkit-user-select: none; /* Для поддержки веб-браузерами на основе WebKit, такими как Chrome и Safari */
+    -moz-user-select: none; /* Для поддержки веб-браузерами на основе Mozilla, такими как Firefox */
+    -ms-user-select: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-family: 'Outline Pixel7 Solid';
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 0px;
+}
+
+h2{
+    font-family: 'Outline Pixel7 Solid';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    margin: 0px;
+}
+
+h3{
+    font-family: 'Outline Pixel7 Solid';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    margin: 0px;
+}
+
+p{
+    color: rgb(0, 0, 0);
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.navbar-menu ul li a {
+    color: rgb(0, 0, 0);
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 85px;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid rgb(236, 238, 243);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    background-color: rgb(255, 255, 255);
+    z-index: 99999;
+}
+
+.container {
+    width: 100%;
+    max-width: 1218px;
+    margin: 12px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-menu ul li {
+    margin-right: 50px;
+}
+
+.navbar-menu ul li:last-child {
+    margin-right: 0;
+}
+
+.navbar-menu ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.navbar-menu ul li a.active {
+    color: var(--color);
+}
+
+.btn{
+    background: var(--color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+}
+
+.btn img {
+    margin-right: 10px; /* Отступ справа от изображения */
+}
+
+.main-section{
+    margin: 0 auto;
+    max-width: 1218px;
+    margin-top: 185px;
+}
+
+.main-section .btns-layout {
+    position: static;
+    max-width: 1218px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Четыре колонки с равной шириной */
+    grid-gap: 30px; /* Отступ между элементами */
+}
+
+.section{
+    margin: 0 auto;
+    max-width: 1218px;
+    margin-top: 100px;
+}
+
+.section > * {
+    margin-top: 30px;
+}
+
+.section .btns-layout {
+    position: static;
+    max-width: 1218px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Четыре колонки с равной шириной */
+    grid-gap: 30px; /* Отступ между элементами */
+}
+
+.section .cards-layout {
+    position: static;
+    max-width: 1218px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Четыре колонки с равной шириной */
+    grid-gap: 30px; /* Отступ между элементами */
+}
+
+.card{
+    max-width: 386px;
+    height: 385px;
+    background: var(--card-color);
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+.card img {
+    width: 386px;
+    height: 180px;
+    object-fit: cover; /* Сохранить соотношение сторон и заполнить содержимое */
+}
+
+
+.card-text{
+    margin: 10px 15px;
+}
+
+.card-text h2 {
+    white-space: nowrap; /* Запрет на перенос строки для заголовка */
+    overflow: hidden; /* Скрытие лишнего текста, который не помещается */
+    text-overflow: ellipsis; /* Замена не поместившегося текста многоточием */
+}
+
+.card-text p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Ограничение на количество строк */
+    -webkit-box-orient: vertical;
+}
+
+
+
+.section .cards-layout h2{
+    color: rgb(0, 0, 0);
+}
+
+.section .cards-layout p{
+    color: rgb(0, 0, 0);
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.love-section{
+    margin-top: 100px;
+    background: var(--color);
+    width: 100%;
+    height: 368px;
+    padding-top: 65px;
+}
+
+.love-content{
+    margin: 0 auto;
+    max-width: 1218px;
+}
+
+.love-content > * {
+    margin-top: 40px;
+}
+
+.love-section .love-content p{
+    color: rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 39px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.love-section .love-content h1{
+    color: rgb(255, 255, 255);
+}
+
+.love-section .love-content h2{
+    color: rgb(0, 0, 0);
+}
+
+.love-btn{
+    display: flex;
+}
+
+.btn-love{
+    position: relative;
+    width: 282px;
+    height: 62px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnt-love{
+    position: relative;
+    width: 282px;
+    height: 62px;
+    box-sizing: border-box;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.cnt-love{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
