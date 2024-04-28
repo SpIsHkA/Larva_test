@@ -108,7 +108,7 @@
             
         </div>
     </div>
-    <!--<div class="love-section">
+    <div class="love-section">
         <div class="love-content">
             <h1>Лавина сердец!</h1>
             <p>Вы можете оставлять безграничное количество сердец! Мне будет очень приятно!</p>
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-    </div>-->
+    
 
 
 <script src="script.js"></script>
@@ -130,7 +130,14 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
-
+<script>
+    document.getElementById('like-btn').addEventListener('click', function() {
+      var heartCount = document.getElementById('heart-count');
+      var currentHearts = parseInt(heartCount.innerText.replace('сердец', ''));
+      currentHearts++;
+      heartCount.innerText = currentHearts + ' сердец';
+    });
+</script>
 
 
 
