@@ -131,13 +131,27 @@
     }
 </script>
 <script>
+    var heartCount = document.getElementById('heart-count');
+    var currentHearts = parseInt(heartCount.innerText);
+
+    // Save the heart count to localStorage
+    localStorage.setItem('heartCount', currentHearts);
+
+    // Load the heart count from localStorage on page load
+    window.onload = function() {
+      var savedHearts = localStorage.getItem('heartCount');
+      if (savedHearts) {
+        heartCount.innerText = savedHearts + ' сердец';
+      }
+    };
+
+    // Increment the heart count and save it to localStorage on button click
     document.getElementById('like-btn').addEventListener('click', function() {
-      var heartCount = document.getElementById('heart-count');
-      var currentHearts = parseInt(heartCount.innerText.replace('сердец', ''));
       currentHearts++;
       heartCount.innerText = currentHearts + ' сердец';
+      localStorage.setItem('heartCount', currentHearts);
     });
-</script>
+  </script>
 
 
 
