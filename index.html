@@ -108,7 +108,7 @@
             
         </div>
     </div>
-    <div class="love-section">
+    <!-- <div class="love-section">
         <div class="love-content">
             <h1>Лавина сердец!</h1>
             <p>Вы можете оставлять безграничное количество сердец! Мне будет очень приятно!</p>
@@ -120,47 +120,10 @@
                     <h3 id="heart-count">0 сердец</h3>
                 </div>
             </div>
-        </div>
+        </div> -->
     
 
 
 <script src="script.js"></script>
-<script>
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
-<script>
-    var heartCount = document.getElementById('heart-count');
-    var currentHearts = parseInt(heartCount.innerText);
-
-    // Save the heart count to a file
-    function saveHeartCount() {
-      var fs = require('fs');
-      fs.writeFile('heart_count.txt', currentHearts, function(err) {
-        if (err) throw err;
-        alert('Heart count saved!');
-      });
-    }
-
-    // Load the heart count from a file on page load
-    window.onload = function() {
-      var fs = require('fs');
-      fs.readFile('heart_count.txt', function(err, data) {
-        if (err) throw err;
-        heartCount.innerText = data + ' сердец';
-      });
-    };
-
-    // Increment the heart count and save it to a file on button click
-    document.getElementById('like-btn').addEventListener('click', function() {
-      currentHearts++;
-      heartCount.innerText = currentHearts + ' сердец';
-      saveHeartCount();
-    });
-  </script>
-
-
-
 </body>
 </html>
