@@ -134,22 +134,29 @@
     var heartCount = document.getElementById('heart-count');
     var currentHearts = parseInt(heartCount.innerText);
 
-    // Save the heart count to localStorage
-    localStorage.setItem('heartCount', currentHearts);
+    // Save the heart count to a file
+    function saveHeartCount() {
+      var fs = require('fs');
+      fs.writeFile('heart_count.txt', currentHearts, function(err) {
+        if (err) throw err;
+        alert('Heart count saved!');
+      });
+    }
 
-    // Load the heart count from localStorage on page load
+    // Load the heart count from a file on page load
     window.onload = function() {
-      var savedHearts = localStorage.getItem('heartCount');
-      if (savedHearts) {
-        heartCount.innerText = savedHearts + ' сердец';
-      }
+      var fs = require('fs');
+      fs.readFile('heart_count.txt', function(err, data) {
+        if (err) throw err;
+        heartCount.innerText = data + ' сердец';
+      });
     };
 
-    // Increment the heart count and save it to localStorage on button click
+    // Increment the heart count and save it to a file on button click
     document.getElementById('like-btn').addEventListener('click', function() {
       currentHearts++;
       heartCount.innerText = currentHearts + ' сердец';
-      localStorage.setItem('heartCount', currentHearts);
+      saveHeartCount();
     });
   </script>
 
