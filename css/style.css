@@ -29,10 +29,18 @@ html, body {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
-    user-select: none; /* Стандартное свойство CSS */
-    -webkit-user-select: none; /* Для поддержки веб-браузерами на основе WebKit, такими как Chrome и Safari */
-    -moz-user-select: none; /* Для поддержки веб-браузерами на основе Mozilla, такими как Firefox */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
     -ms-user-select: none;
+}
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 a{
@@ -152,7 +160,7 @@ p{
 }
 
 .btn img {
-    margin-right: 10px; /* Отступ справа от изображения */
+    margin-right: 10px;
 }
 
 .main-section{
@@ -166,8 +174,8 @@ p{
     max-width: 1218px;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Четыре колонки с равной шириной */
-    grid-gap: 30px; /* Отступ между элементами */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px 30px;
 }
 
 .section{
@@ -185,8 +193,8 @@ p{
     max-width: 1218px;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Четыре колонки с равной шириной */
-    grid-gap: 30px; /* Отступ между элементами */
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
 }
 
 .section .cards-layout {
@@ -194,8 +202,8 @@ p{
     max-width: 1218px;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Четыре колонки с равной шириной */
-    grid-gap: 30px; /* Отступ между элементами */
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
 }
 
 .card{
@@ -209,7 +217,7 @@ p{
 .card img {
     width: 386px;
     height: 180px;
-    object-fit: cover; /* Сохранить соотношение сторон и заполнить содержимое */
+    object-fit: cover;
 }
 
 
@@ -218,16 +226,16 @@ p{
 }
 
 .card-text h2 {
-    white-space: nowrap; /* Запрет на перенос строки для заголовка */
-    overflow: hidden; /* Скрытие лишнего текста, который не помещается */
-    text-overflow: ellipsis; /* Замена не поместившегося текста многоточием */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-text p {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 5; /* Ограничение на количество строк */
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
 }
 
