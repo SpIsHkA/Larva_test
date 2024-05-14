@@ -145,18 +145,27 @@
                 heartCount.innerText = `${likes} сердец`;
             });
 
+            let localLikes = 0;
+
             // Update the count when the button is clicked
             likeBtn.addEventListener('click', () => {
+                localLikes++;
+                heartCount.innerText = `${localLikes} сердец`;
+
+                // Use transaction to update the count in the database
                 database.ref('likes').transaction((currentLikes) => {
                     return (currentLikes || 0) + 1;
                 }).then((result) => {
-                    heartCount.innerText = `${result.snapshot.val()} сердец`;
+                    // Synchronize local count with server count after the transaction
+                    localLikes = result.snapshot.val();
+                    heartCount.innerText = `${localLikes} сердец`;
                 });
             });
 
             // Realtime update
             database.ref('likes').on('value', (snapshot) => {
-                heartCount.innerText = `${snapshot.val()} сердец`;
+                localLikes = snapshot.val();
+                heartCount.innerText = `${localLikes} сердец`;
             });
         })
         .catch(error => {
