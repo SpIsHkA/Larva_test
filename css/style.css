@@ -1,8 +1,7 @@
-/* Основные стили (существующие) */
-
 :root {
     --color: #3D4C8D;
     --card-color: #ECEEF3;
+    --btn-anim: #9B3491;
 }
 
 @font-face {
@@ -16,15 +15,15 @@
 @font-face {
     font-family: 'Inter';
     src: local('Inter Bold'),
-        url('../fonts/inter/bold/Inter-Bold.woff') format('woff'),
-        url('../fonts/inter/bold/Inter-Bold.woff2') format('woff2');
+        url('../fonts/inter/bold/Inter-Bold.woff2') format('woff2'),
+        url('../fonts/inter/bold/Inter-Bold.woff') format('woff');  
 }
 
 @font-face {
     font-family: 'Inter';
     src: local('Inter Medium'),
-        url('../fonts/inter/medium/Inter-Medium.woff') format('woff'),
-        url('../fonts/inter/medium/Inter-Medium.woff2') format('woff2');
+        url('../fonts/inter/medium/Inter-Medium.woff2') format('woff2'),
+        url('../fonts/inter/medium/Inter-Medium.woff') format('woff');
 }
 
 html, body {
@@ -114,6 +113,11 @@ p{
     z-index: 99999;
 }
 
+.logo{
+    width: 52px;
+    height: 61px;
+}
+
 .container {
     width: 100%;
     max-width: 1218px;
@@ -159,6 +163,12 @@ p{
     justify-content: center;
     align-items: center;
     height: 62px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background: var(--btn-anim);
+    color: #ffffff;
 }
 
 .btn img {
@@ -302,6 +312,13 @@ p{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-love:hover {
+    background: var(--btn-anim);
+    color: #ffffff;
 }
 
 .cnt-love{
@@ -318,8 +335,6 @@ p{
     justify-content: center;
     align-items: center;
 }
-
-/* Адаптивные стили */
 
 @media (max-width: 1200px) {
 
